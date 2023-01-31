@@ -74,6 +74,7 @@ public class ModuleManager {
         addModule(AutoWTap.class);
         addModule(AutoTotem.class);
         addModule(MarlowAnchor.class);
+        addModule(JetPack.class);
     }
 
     private void addModule(Class<? extends Module> clazz) {
