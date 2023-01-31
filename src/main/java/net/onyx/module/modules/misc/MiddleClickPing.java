@@ -12,7 +12,6 @@ import net.onyx.module.Module;
 import net.onyx.module.setting.BooleanSetting;
 import org.lwjgl.glfw.GLFW;
 
-import static net.onyx.onyx.mc;
 import static net.onyx.util.ChatUtils.plainMessageWithPrefix;
 import static net.onyx.util.ChatUtils.sendPlainMessage;
 
@@ -40,11 +39,6 @@ public class MiddleClickPing extends Module implements PlayerTickListener {
     public void onDisable() {
         super.onDisable();
         eventManager.remove(PlayerTickListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
     }
 
     @Override

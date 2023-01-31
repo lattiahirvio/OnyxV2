@@ -19,7 +19,7 @@ import net.onyx.util.RotationUtils;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public enum BlockUtils2 {
     ;

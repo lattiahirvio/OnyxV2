@@ -17,8 +17,6 @@ import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket.Action;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 
-import static net.onyx.onyx.mc;
-
 public class FastBreak extends Module implements PacketOutputListener, PlayerTickListener
 {
 
@@ -71,11 +69,6 @@ public class FastBreak extends Module implements PacketOutputListener, PlayerTic
         eventManager.remove(PacketOutputListener.class, this);
         eventManager.remove(PlayerTickListener.class, this);
         cancelMining();
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
     }
 
     @Override

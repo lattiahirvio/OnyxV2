@@ -3,15 +3,12 @@ package net.onyx.util;
 // copied from wurst
 
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.packet.c2s.play.ChatMessageC2SPacket;
-import net.minecraft.network.packet.s2c.play.GameMessageS2CPacket;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.onyx.core.Rotation;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public enum RotationUtils {
     ;

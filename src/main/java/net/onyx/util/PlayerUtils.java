@@ -5,7 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.GameMode;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 
 public enum PlayerUtils {

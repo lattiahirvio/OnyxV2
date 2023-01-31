@@ -4,22 +4,18 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.RespawnAnchorBlock;
 import net.minecraft.item.Items;
 import net.minecraft.util.hit.BlockHitResult;
-import net.onyx.onyx;
-import net.onyx.event.events.ItemUseListener;
+import net.onyx.Onyx;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
 import net.onyx.module.setting.BlockUtils2;
 import net.onyx.module.setting.BooleanSetting;
 import net.onyx.module.setting.IntegerSetting;
-import net.onyx.util.BlockUtils;
 import net.onyx.util.InventoryUtils;
 import org.lwjgl.glfw.GLFW;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
-
-import static net.onyx.onyx.mc;
 
 public class AnchorMacro extends Module implements PlayerTickListener {
     private boolean isClicking = false;
@@ -63,11 +59,6 @@ public class AnchorMacro extends Module implements PlayerTickListener {
     }
 
     @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
-
-    @Override
     public void onPlayerTick() {
         //
         // MAIN ANCHOR MACRO CODE
@@ -85,8 +76,8 @@ public class AnchorMacro extends Module implements PlayerTickListener {
                 InventoryUtils.selectItemFromHotbar(Items.GLOWSTONE);
             }
             if (GlowStonePlaceClock == 0) {
-                    onyx.INSTANCE.getRobot().mousePress(InputEvent.BUTTON3_DOWN_MASK);
-                    onyx.INSTANCE.getRobot().mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+                    Onyx.INSTANCE.getRobot().mousePress(InputEvent.BUTTON3_DOWN_MASK);
+                    Onyx.INSTANCE.getRobot().mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
                     AnchorActivateQueued = true;
                     AnchorActivateClock = delay.get();
                     GlowStonePlaceQueued = false;

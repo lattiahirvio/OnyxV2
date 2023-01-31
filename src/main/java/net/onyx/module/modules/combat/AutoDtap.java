@@ -11,7 +11,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.event.EventManager;
 import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PlayerTickListener;
@@ -22,8 +22,6 @@ import net.onyx.module.setting.IntegerSetting;
 import net.onyx.util.BlockUtils;
 import net.onyx.util.CrystalUtils;
 import org.lwjgl.glfw.GLFW;
-
-import static net.onyx.onyx.mc;
 
 
 public class AutoDtap extends Module implements PlayerTickListener, ItemUseListener
@@ -96,14 +94,9 @@ public class AutoDtap extends Module implements PlayerTickListener, ItemUseListe
     public void onDisable()
     {
         super.onDisable();
-        EventManager eventManager = onyx.INSTANCE.getEventManager();
+        EventManager eventManager = Onyx.INSTANCE.getEventManager();
         eventManager.remove(PlayerTickListener.class, this);
         eventManager.remove(ItemUseListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseEvent event) {
-
     }
 
     private boolean isDeadBodyNearby()
@@ -138,7 +131,7 @@ public class AutoDtap extends Module implements PlayerTickListener, ItemUseListe
                 crystalBreakClock = breakInterval.get();
                 mc.interactionManager.attackEntity(mc.player, crystal);
                 mc.player.swingHand(Hand.MAIN_HAND);
-                onyx.INSTANCE.getCrystalDataTracker().recordAttack(crystal);
+                Onyx.INSTANCE.getCrystalDataTracker().recordAttack(crystal);
             }
         }
         if (mc.crosshairTarget instanceof BlockHitResult hit)

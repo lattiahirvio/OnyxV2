@@ -8,8 +8,6 @@ import net.onyx.event.events.ItemUseListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
 
-import static net.onyx.onyx.mc;
-
 public class Fakeplayer extends Module
 {
 
@@ -37,8 +35,4 @@ public class Fakeplayer extends Module
         mc.world.removeEntity(id, Entity.RemovalReason.DISCARDED);
     }
 
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
 }

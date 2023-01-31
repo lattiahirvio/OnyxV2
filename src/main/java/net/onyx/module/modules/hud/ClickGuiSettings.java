@@ -76,11 +76,6 @@ public class ClickGuiSettings extends Module implements PlayerTickListener {
         this.setEnabled(true);
     }
 
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
-
 
     public double getHudColorBlue() {
         if(rgbEffect.get()) {

@@ -9,8 +9,4 @@ public class NoLoadingScreen extends Module {
         super("NoLoadingScreen", "restore pre 1.18.2 loading screen behavior", false, Category.MISC);
     }
 
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
 }

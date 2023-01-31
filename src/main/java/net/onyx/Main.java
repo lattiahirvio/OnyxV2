@@ -6,7 +6,7 @@ public class Main implements ModInitializer {
     @Override
     public void onInitialize() {
         try {
-            onyx.INSTANCE.init();
+            Onyx.INSTANCE.init();
         } catch (Exception ignored) {
 
         }

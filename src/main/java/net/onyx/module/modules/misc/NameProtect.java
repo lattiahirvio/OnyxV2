@@ -4,8 +4,6 @@ import net.onyx.event.events.ItemUseListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
 
-import static net.onyx.onyx.mc;
-
 public class NameProtect extends Module {
     private static String replacementUsername = "LilNotMaster";
     private static boolean isEnabledStatic = false;
@@ -25,10 +23,6 @@ public class NameProtect extends Module {
         isEnabledStatic = false;
     }
 
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
 
     public static int setReplacementUsername(String newReplacementUsername) {
         replacementUsername = newReplacementUsername;

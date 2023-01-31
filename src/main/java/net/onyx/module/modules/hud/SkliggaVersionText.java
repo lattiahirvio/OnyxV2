@@ -6,8 +6,6 @@ import net.onyx.event.events.RenderHudListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
 
-import static net.onyx.onyx.mc;
-
 public class SkliggaVersionText extends Module implements RenderHudListener
 {
 
@@ -28,11 +26,6 @@ public class SkliggaVersionText extends Module implements RenderHudListener
     {
         super.onDisable();
         eventManager.remove(RenderHudListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
     }
 
     @Override

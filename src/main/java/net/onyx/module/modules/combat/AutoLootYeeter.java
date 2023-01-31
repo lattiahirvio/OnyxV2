@@ -94,11 +94,6 @@ public class AutoLootYeeter extends Module implements PlayerTickListener {
     }
 
     @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
-
-    @Override
     public void onPlayerTick() {
         if (dropClock != 0) {
             dropClock--;

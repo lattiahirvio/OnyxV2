@@ -54,13 +54,13 @@ public class ModuleManager {
         addModule(AnchorMacro.class);
         addModule(NameProtect.class);
         addModule(AutoXp.class);
-        addModule(AA.class);
-        addModule(ALY.class);
-        addModule(APR.class);
+        addModule(AnchorMacroRe.class);
+        addModule(AutoLoot.class);
+        addModule(PearlRestock.class);
         addModule(Fakeplayer.class);
         addModule(ClickGuiSettings.class);
-        addModule(AIT.class);
-        addModule(ADH.class);
+        addModule(AutoInvTotemLegit.class);
+        addModule(NoDtapRewrite.class);
         addModule(Puggers.class);
         addModule(TB.class);
         addModule(SkliggaVersionText.class);

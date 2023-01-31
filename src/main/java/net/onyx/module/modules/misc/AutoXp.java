@@ -4,7 +4,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.module.Category;
@@ -12,8 +12,6 @@ import net.onyx.module.Module;
 import net.onyx.module.setting.BooleanSetting;
 import net.onyx.module.setting.DecimalSetting;
 import org.lwjgl.glfw.GLFW;
-
-import static net.onyx.onyx.mc;
 
 public class AutoXp extends Module
         implements PlayerTickListener {
@@ -39,14 +37,10 @@ public class AutoXp extends Module
         eventManager.remove(PlayerTickListener.class, this);
     }
 
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
 
     @Override
     public void onPlayerTick() {
-        if (onyx.mc.currentScreen != null && this.OnlyMainScreen.get()) {
+        if (Onyx.mc.currentScreen != null && this.OnlyMainScreen.get()) {
             return;
         }
         if (this.ActivateOnRightClick.get() && GLFW.glfwGetMouseButton(mc.getWindow().getHandle(), GLFW.GLFW_MOUSE_BUTTON_2) != GLFW.GLFW_PRESS) {
@@ -57,11 +51,11 @@ public class AutoXp extends Module
             return;
         }
         this.DropClock = 0;
-        ItemStack mainHandStack = onyx.mc.player.getMainHandStack();
+        ItemStack mainHandStack = Onyx.mc.player.getMainHandStack();
         if (!mainHandStack.isOf(Items.EXPERIENCE_BOTTLE)) {
             return;
         }
-        onyx.mc.interactionManager.interactItem((PlayerEntity)onyx.mc.player, Hand.MAIN_HAND);
-        onyx.mc.player.swingHand(Hand.MAIN_HAND);
+        Onyx.mc.interactionManager.interactItem((PlayerEntity) Onyx.mc.player, Hand.MAIN_HAND);
+        Onyx.mc.player.swingHand(Hand.MAIN_HAND);
     }
 }

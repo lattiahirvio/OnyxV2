@@ -1,13 +1,11 @@
 package net.onyx.module.modules.misc;
 
-import net.minecraft.network.packet.c2s.play.TeleportConfirmc2SPacket;
+import net.minecraft.network.packet.c2s.play.TeleportConfirmC2SPacket;
 import net.minecraft.network.packet.s2c.play.PlayerPositionLookS2CPacket;
 import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PacketInputListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
-
-import static net.onyx.onyx.mc;
 
 public class AntiLookUpdateFeature extends Module implements PacketInputListener
 {
@@ -29,18 +27,13 @@ public class AntiLookUpdateFeature extends Module implements PacketInputListener
 	}
 
 	@Override
-	public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-	}
-
-	@Override
 	public void onReceivePacket(PacketInputEvent event)
 	{
 		if (!(event.getPacket() instanceof PlayerPositionLookS2CPacket && mc.currentScreen == null))
 			return;
 		event.cancel();
 		PlayerPositionLookS2CPacket packet = (PlayerPositionLookS2CPacket) event.getPacket();
-		mc.getNetworkHandler().sendPacket(new TeleportConfirmc2SPacket(packet.getTeleportId()));
+		mc.getNetworkHandler().sendPacket(new TeleportConfirmC2SPacket(packet.getTeleportId()));
 		mc.player.setPosition(packet.getX(), packet.getY(), packet.getZ());
 	}
 }

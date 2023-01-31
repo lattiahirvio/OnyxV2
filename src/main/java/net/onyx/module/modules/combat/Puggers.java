@@ -37,7 +37,7 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.module.Category;
@@ -48,8 +48,6 @@ import net.onyx.module.setting.IntegerSetting;
 import net.onyx.util.CrystalUtils;
 import net.onyx.util.RotationUtils;
 import org.lwjgl.glfw.GLFW;
-
-import static net.onyx.onyx.mc;
 
 public class Puggers
 extends Module
@@ -84,20 +82,21 @@ implements PlayerTickListener, ItemUseListener {
     @Override
     public void onDisable() {
         super.onDisable();
-        eventManager = onyx.INSTANCE.getEventManager();
+        eventManager = Onyx.INSTANCE.getEventManager();
         eventManager.remove(PlayerTickListener.class, this);
         eventManager.remove(ItemUseListener.class, this);
     }
 
     private boolean isDeadBodyNearby() {
-        return onyx.mc.world.getPlayers().parallelStream().filter(e -> onyx.mc.player != e).filter(e -> e.squaredDistanceTo((Entity)onyx.mc.player) < 36.0).anyMatch(LivingEntity::isDead);
+        return Onyx.mc.world.getPlayers().parallelStream().filter(e -> Onyx.mc.player != e).filter(e -> e.squaredDistanceTo((Entity) Onyx.mc.player) < 36.0).anyMatch(LivingEntity::isDead);
     }
 
+
     @Override
-    public void ItemUseListener(ItemUseEvent event) {
-        ItemStack mainHandStack = onyx.mc.player.getMainHandStack();
-        if (onyx.mc.crosshairTarget.getType() == HitResult.Type.BLOCK) {
-            BlockHitResult hit = (BlockHitResult)onyx.mc.crosshairTarget;
+    public void onItemUse(ItemUseEvent event) {
+        ItemStack mainHandStack = Onyx.mc.player.getMainHandStack();
+        if (Onyx.mc.crosshairTarget.getType() == HitResult.Type.BLOCK) {
+            BlockHitResult hit = (BlockHitResult) Onyx.mc.crosshairTarget;
             if (mainHandStack.isOf(Items.END_CRYSTAL) && BlockUtils2.isBlock(Blocks.OBSIDIAN, hit.getBlockPos())) {
                 event.cancel();
             }
@@ -157,7 +156,7 @@ implements PlayerTickListener, ItemUseListener {
                 this.crystalBreakClock = this.breakInterval.get();
                 mc.interactionManager.attackEntity((PlayerEntity) mc.player, (Entity)crystal);
                 mc.player.swingHand(Hand.MAIN_HAND);
-                onyx.INSTANCE.getCrystalDataTracker().recordAttack((Entity)crystal);
+                Onyx.INSTANCE.getCrystalDataTracker().recordAttack((Entity)crystal);
             }
         }
         if (BlockUtils2.isBlock(Blocks.OBSIDIAN, blockHit.getBlockPos()) && CrystalUtils.canPlaceCrystalServer(blockHit.getBlockPos())) {
@@ -168,11 +167,6 @@ implements PlayerTickListener, ItemUseListener {
             }
         }
     }
-
-        @Override
-        public void onItemUse(ItemUseEvent event) {
-
-        }
 
 }
 

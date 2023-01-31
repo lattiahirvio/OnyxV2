@@ -7,8 +7,6 @@ import net.onyx.module.Category;
 import net.onyx.module.Module;
 import net.onyx.module.setting.IntegerSetting;
 
-import static net.onyx.onyx.mc;
-
 
 public class Fireworks extends Module implements PlayerTickListener {
     private IntegerSetting rColorSetting = new IntegerSetting.Builder()
@@ -59,10 +57,6 @@ public class Fireworks extends Module implements PlayerTickListener {
         eventManager.remove(PlayerTickListener.class, this);
     }
 
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
 
     private boolean isPlayerKilled() {
         return mc.world.getPlayers().parallelStream()

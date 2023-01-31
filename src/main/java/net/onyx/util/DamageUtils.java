@@ -27,7 +27,7 @@ import net.onyx.module.modules.misc.NameProtect;
 
 import java.util.Objects;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public enum DamageUtils {
     ;

@@ -3,13 +3,12 @@ package net.onyx.util;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.onyx.mixinterface.IMatrix4f;
 import net.onyx.module.setting.MathUtils2;
-import net.onyx.util.Vec4d;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.Matrix4f;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public enum NameTagUtils
 {

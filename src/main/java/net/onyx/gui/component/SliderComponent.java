@@ -3,7 +3,7 @@ package net.onyx.gui.component;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.gui.window.Window;
 import net.onyx.module.modules.hud.ClickGuiSettings;
 import net.onyx.util.MathUtils;
@@ -13,7 +13,7 @@ import org.lwjgl.glfw.GLFW;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public class SliderComponent extends Component {
 
@@ -65,9 +65,9 @@ public class SliderComponent extends Component {
     }
 
     private void renderSlider(MatrixStack matrices) {
-        double r = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorRed();
-        double g = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorGreen();
-        double b = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorBlue();
+        double r = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorRed();
+        double g = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorGreen();
+        double b = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorBlue();
         double offset = (value - min) / (max - min) * width;
         double parentX = parent.getX();
         double parentY = parent.getY();

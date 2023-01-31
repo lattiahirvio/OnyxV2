@@ -5,7 +5,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.gui.ClickGui;
 import net.onyx.gui.component.Component;
 import net.onyx.module.modules.hud.ClickGuiSettings;
@@ -15,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public class Window {
     public final ClickGui parent;
@@ -49,9 +49,9 @@ public class Window {
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        double r = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorRed();
-        double g = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorGreen();
-        double b = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorBlue();
+        double r = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorRed();
+        double g = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorGreen();
+        double b = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorBlue();
         TextRenderer textRenderer = mc.textRenderer;
         if(length==20){
             return;

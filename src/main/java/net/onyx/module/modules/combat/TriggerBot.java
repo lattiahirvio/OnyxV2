@@ -6,14 +6,11 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
-import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
 import net.onyx.module.setting.BooleanSetting;
 import net.onyx.module.setting.DecimalSetting;
-
-import static net.onyx.onyx.mc;
 
 public class TriggerBot extends Module implements PlayerTickListener {
 
@@ -58,11 +55,6 @@ public class TriggerBot extends Module implements PlayerTickListener {
     public void onDisable() {
         super.onDisable();
         eventManager.remove(PlayerTickListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
     }
 
     @Override

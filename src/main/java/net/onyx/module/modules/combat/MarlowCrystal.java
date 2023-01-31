@@ -12,7 +12,7 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.event.EventManager;
 import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PlayerTickListener;
@@ -24,8 +24,6 @@ import net.onyx.module.setting.IntegerSetting;
 import net.onyx.util.CrystalUtils;
 import net.onyx.util.RotationUtils;
 import org.lwjgl.glfw.GLFW;
-
-import static net.onyx.onyx.mc;
 
 public class MarlowCrystal extends Module implements PlayerTickListener, ItemUseListener {
 
@@ -72,14 +70,9 @@ public class MarlowCrystal extends Module implements PlayerTickListener, ItemUse
     @Override
     public void onDisable() {
         super.onDisable();
-        EventManager eventManager = onyx.INSTANCE.getEventManager();
+        EventManager eventManager = Onyx.INSTANCE.getEventManager();
         eventManager.remove(PlayerTickListener.class, this);
         eventManager.remove(ItemUseListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseEvent event) {
-
     }
 
     private boolean isDeadBodyNearby() {
@@ -118,7 +111,7 @@ public class MarlowCrystal extends Module implements PlayerTickListener, ItemUse
                 crystalBreakClock = breakInterval.get();
                 mc.interactionManager.attackEntity(mc.player, crystal);
                 mc.player.swingHand(Hand.MAIN_HAND);
-                onyx.INSTANCE.getCrystalDataTracker().recordAttack(crystal);
+                Onyx.INSTANCE.getCrystalDataTracker().recordAttack(crystal);
             }
         }
         if (BlockUtils2.isBlock(Blocks.OBSIDIAN, blockHit.getBlockPos())) {

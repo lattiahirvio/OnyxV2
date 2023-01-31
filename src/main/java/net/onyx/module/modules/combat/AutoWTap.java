@@ -1,16 +1,12 @@
 package net.onyx.module.modules.combat;
 
 import net.onyx.event.events.AttackEntityListener;
-import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PostActionListener;
 import net.onyx.event.events.PreActionListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
 import net.onyx.module.setting.EnumSetting;
 import net.minecraft.network.packet.c2s.play.ClientCommandC2SPacket;
-import net.onyx.module.Module;
-
-import static net.onyx.onyx.mc;
 
 public class AutoWTap extends Module implements AttackEntityListener, PreActionListener, PostActionListener
 {
@@ -36,11 +32,6 @@ public class AutoWTap extends Module implements AttackEntityListener, PreActionL
         eventManager.remove(AttackEntityListener.class, this);
         eventManager.remove(PreActionListener.class, this);
         eventManager.remove(PostActionListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
     }
 
     private boolean attacked;

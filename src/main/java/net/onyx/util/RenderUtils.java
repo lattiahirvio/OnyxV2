@@ -5,7 +5,7 @@ import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.*;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public enum RenderUtils {
     ;

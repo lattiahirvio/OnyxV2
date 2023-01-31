@@ -9,7 +9,7 @@ import org.lwjgl.glfw.GLFW;
 
 import java.util.function.Supplier;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public class ButtonComponent extends Component {
 

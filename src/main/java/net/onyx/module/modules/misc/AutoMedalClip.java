@@ -12,8 +12,6 @@ import org.lwjgl.glfw.GLFW;
 
 import java.awt.*;
 
-import static net.onyx.onyx.mc;
-
 
 public class AutoMedalClip extends Module implements PlayerTickListener {
     private final Keybind activateKeybind = new Keybind(
@@ -60,11 +58,6 @@ public class AutoMedalClip extends Module implements PlayerTickListener {
     public void onDisable() {
         super.onDisable();
         eventManager.remove(PlayerTickListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
     }
 
     private boolean isDeadBodyNearby() {

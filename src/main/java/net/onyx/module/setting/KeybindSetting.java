@@ -9,7 +9,7 @@ import net.onyx.gui.window.Window;
 import net.onyx.keybind.Keybind;
 import net.onyx.module.Module;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public class KeybindSetting extends Setting<Keybind> {
 

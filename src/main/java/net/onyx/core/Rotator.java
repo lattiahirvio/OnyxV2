@@ -1,18 +1,18 @@
 package net.onyx.core;
 
 import net.minecraft.util.math.Vec3d;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.util.RotationUtils;
 
 import java.util.ArrayList;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public class Rotator implements PlayerTickListener {
 
     public Rotator() {
-        onyx.INSTANCE.getEventManager().add(PlayerTickListener.class, this);
+        Onyx.INSTANCE.getEventManager().add(PlayerTickListener.class, this);
     }
 
     private final ArrayList<Rotation> rotations = new ArrayList<>();

@@ -1,7 +1,5 @@
 package net.onyx.module.modules.combat;
 
-import net.onyx.event.events.FrameBeginListener;
-import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
@@ -11,8 +9,6 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Util;
 
 import java.util.Random;
-
-import static net.onyx.onyx.mc;
 
 public class AutoHeadBob extends Module implements PlayerTickListener
 {
@@ -87,11 +83,6 @@ public class AutoHeadBob extends Module implements PlayerTickListener
     public void onDisable()
     {
         eventManager.remove(PlayerTickListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
     }
 
     @Override

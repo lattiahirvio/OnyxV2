@@ -3,7 +3,7 @@ package net.onyx.gui;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 
 public class GuiScreen extends Screen {
 
@@ -11,7 +11,7 @@ public class GuiScreen extends Screen {
 
     public GuiScreen() {
         super(Text.literal("gui"));
-        gui = onyx.INSTANCE.getClickGui();
+        gui = Onyx.INSTANCE.getClickGui();
     }
 
     @Override

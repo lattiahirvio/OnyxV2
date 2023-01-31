@@ -12,8 +12,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import static net.onyx.onyx.mc;
-
 public class PingSpoof extends Module implements PacketOutputListener, PacketInputListener
 {
 
@@ -46,10 +44,6 @@ public class PingSpoof extends Module implements PacketOutputListener, PacketInp
         eventManager.remove(PacketInputListener.class, this);
     }
 
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
 
     @Override
     public void onSendPacket(PacketOutputEvent event)

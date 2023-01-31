@@ -2,18 +2,18 @@ package net.onyx.util;
 
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.text.Text;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.module.modules.misc.NameProtect;
 import org.apache.logging.log4j.LogManager;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public enum ChatUtils {
     ;
     private static final String prefix = "§f[§9onyx§f] ";
 
     public static void log(String message) {
-        LogManager.getLogger().info("[onyx] {}", message.replaceAll("\r", "\\\\r").replaceAll("\n", "\\\\n"));
+        LogManager.getLogger().info("[Onyx] {}", message.replaceAll("\r", "\\\\r").replaceAll("\n", "\\\\n"));
     }
 
     public static void info(String message) {
@@ -38,7 +38,7 @@ public enum ChatUtils {
     }
 
     public static String replaceName(String string) {
-        if (string != null && onyx.INSTANCE.getModuleManager().getModule(NameProtect.class).isEnabled()) {
+        if (string != null && Onyx.INSTANCE.getModuleManager().getModule(NameProtect.class).isEnabled()) {
             return string.replace(mc.getSession().getUsername(), "Player");
         }
         return string;

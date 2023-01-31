@@ -9,15 +9,15 @@
   ],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/pugware/fire.png",
+  "icon": "assets/nofireoverlay/fire.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.pugware.Main"
+      "net.onyx.Main"
     ]
   },
   "mixins": [
-    "pugware.mixins.json"
+    "nofireoverlay.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.10",

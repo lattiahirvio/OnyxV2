@@ -3,7 +3,7 @@ package net.onyx.gui.component;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.gui.window.Window;
 import net.onyx.module.modules.hud.ClickGuiSettings;
 import net.onyx.util.RenderUtils;
@@ -28,9 +28,9 @@ public class CheckboxComponent extends Component {
 
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        double r = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorRed();
-        double g = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorGreen();
-        double b = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorBlue();
+        double r = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorRed();
+        double g = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorGreen();
+        double b = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorBlue();
         super.render(matrices, mouseX, mouseY, delta);
         double parentX = parent.getX();
         double parentY = parent.getY();

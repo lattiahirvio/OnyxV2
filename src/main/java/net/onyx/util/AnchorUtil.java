@@ -9,7 +9,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.shape.VoxelShape;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.module.setting.BlockUtils2;
 
 import java.util.ArrayList;
@@ -17,7 +17,8 @@ import java.util.stream.Stream;
 
 import static net.minecraft.util.shape.VoxelShapes.fullCube;
 
-public enum AcrBlkUtl {;
+public enum AnchorUtil {
+   ;
    public static boolean isAnchorCharged(BlockPos anchor) {
       if (!isBlock(Blocks.RESPAWN_ANCHOR, anchor)) {
          return false;
@@ -43,11 +44,11 @@ public enum AcrBlkUtl {;
    }
 
    public static boolean canPlace(BlockState state, BlockPos pos) {
-      return onyx.mc.world.canPlace(state, pos, (ShapeContext)null);
+      return Onyx.mc.world.canPlace(state, pos, (ShapeContext)null);
    }
 
    public static boolean hasBlock(BlockPos pos) {
-      return !onyx.mc.world.getBlockState(pos).isAir();
+      return !Onyx.mc.world.getBlockState(pos).isAir();
    }
 
    public static boolean isBlock(Block block, BlockPos pos) {
@@ -55,11 +56,11 @@ public enum AcrBlkUtl {;
    }
 
    public static Block getBlock(BlockPos pos) {
-      return onyx.mc.world.getBlockState(pos).getBlock();
+      return Onyx.mc.world.getBlockState(pos).getBlock();
    }
 
    public static BlockState getBlockState(BlockPos pos) {
-      return onyx.mc.world.getBlockState(pos);
+      return Onyx.mc.world.getBlockState(pos);
    }
 
    public static BlockState getDefaultBlockState() {
@@ -89,11 +90,11 @@ public enum AcrBlkUtl {;
    }
 
    public static BlockHitResult clientRaycastBlock(BlockPos pos) {
-      return onyx.mc.world.raycastBlock(RotationUtils.getEyesPos(), RotationUtils.getClientLookVec().multiply(6.0D).add(RotationUtils.getEyesPos()), pos, getBlockState(pos).getOutlineShape(onyx.mc.world, pos), getBlockState(pos));
+      return Onyx.mc.world.raycastBlock(RotationUtils.getEyesPos(), RotationUtils.getClientLookVec().multiply(6.0D).add(RotationUtils.getEyesPos()), pos, getBlockState(pos).getOutlineShape(Onyx.mc.world, pos), getBlockState(pos));
    }
 
    public static BlockHitResult serverRaycastBlock(BlockPos pos) {
-      return onyx.mc.world.raycastBlock(RotationUtils.getEyesPos(), RotationUtils.getClientLookVec().multiply(6.0D).add(RotationUtils.getEyesPos()), pos, getBlockState(pos).getOutlineShape(onyx.mc.world, pos), getBlockState(pos));
+      return Onyx.mc.world.raycastBlock(RotationUtils.getEyesPos(), RotationUtils.getClientLookVec().multiply(6.0D).add(RotationUtils.getEyesPos()), pos, getBlockState(pos).getOutlineShape(Onyx.mc.world, pos), getBlockState(pos));
    }
 
    public static Stream<BlockPos> getAllInBoxStream(BlockPos from, BlockPos to) {
@@ -126,7 +127,7 @@ public enum AcrBlkUtl {;
 
    public static boolean isBlockReachable(BlockPos pos, double reach) {
       BlockState state = BlockUtils2.getBlockState(pos);
-      VoxelShape shape = state.getOutlineShape(onyx.mc.world, pos);
+      VoxelShape shape = state.getOutlineShape(Onyx.mc.world, pos);
       if (shape.isEmpty()) {
          shape = fullCube();
       }
@@ -155,7 +156,7 @@ public enum AcrBlkUtl {;
       Direction side = null;
       Direction[] sides = Direction.values();
       BlockState state = BlockUtils2.getBlockState(pos);
-      VoxelShape shape = state.getOutlineShape(onyx.mc.world, pos);
+      VoxelShape shape = state.getOutlineShape(Onyx.mc.world, pos);
       if (shape.isEmpty()) {
          return false;
       } else {
@@ -185,10 +186,10 @@ public enum AcrBlkUtl {;
          }
 
          ActionResult result1 = null;
-         ActionResult result2 = onyx.mc.interactionManager.interactBlock(onyx.mc.player, Hand.MAIN_HAND, new BlockHitResult(hitVecs[side.ordinal()], side, pos, false));
+         ActionResult result2 = Onyx.mc.interactionManager.interactBlock(Onyx.mc.player, Hand.MAIN_HAND, new BlockHitResult(hitVecs[side.ordinal()], side, pos, false));
          boolean bl = result1 == ActionResult.SUCCESS || result2 == ActionResult.SUCCESS;
          if (bl) {
-            onyx.mc.player.swingHand(Hand.MAIN_HAND);
+            Onyx.mc.player.swingHand(Hand.MAIN_HAND);
          }
 
          return bl;
@@ -201,7 +202,7 @@ public enum AcrBlkUtl {;
    }
 
    // $FF: synthetic method
-   private static AcrBlkUtl[] $values() {
-      return new AcrBlkUtl[0];
+   private static AnchorUtil[] $values() {
+      return new AnchorUtil[0];
    }
 }

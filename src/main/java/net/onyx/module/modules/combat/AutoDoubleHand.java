@@ -8,7 +8,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
-import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
@@ -20,8 +19,6 @@ import net.onyx.util.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
-
-import static net.onyx.onyx.mc;
 
 public class AutoDoubleHand extends Module implements PlayerTickListener {
 
@@ -95,11 +92,6 @@ public class AutoDoubleHand extends Module implements PlayerTickListener {
         eventManager.remove(PlayerTickListener.class, this);
     }
 
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
-
     private List<EndCrystalEntity> getNearByCrystals() {
         Vec3d pos = mc.player.getPos();
         return mc.world.getEntitiesByClass(EndCrystalEntity.class, new Box(pos.add(-6, -6, -6), pos.add(6, 6, 6)), a -> true);
@@ -136,7 +128,7 @@ public class AutoDoubleHand extends Module implements PlayerTickListener {
                 else
                     stream = stream.filter(this::arePeopleAimingAtBlock);
             }
-            stream.forEachOrdered(e -> crystalsPos.add(Vec3d.ofBottomcenter(e).add(0, 1, 0)));
+            stream.forEachOrdered(e -> crystalsPos.add(Vec3d.ofBottomCenter(e).add(0, 1, 0)));
         }
 
         for (Vec3d pos : crystalsPos) {

@@ -21,8 +21,4 @@ public class nameTagPing extends Module {
         super.onDisable();
     }
 
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
 }

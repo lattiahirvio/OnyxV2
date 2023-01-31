@@ -1,6 +1,6 @@
 package net.onyx.keybind;
 
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.event.events.KeyPressListener;
 import net.onyx.gui.GuiScreen;
 import net.onyx.module.modules.hud.ClickGuiSettings;
@@ -8,14 +8,14 @@ import org.lwjgl.glfw.GLFW;
 
 import java.util.ArrayList;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public class KeybindManager implements KeyPressListener {
 
     private final ArrayList<Keybind> keybinds = new ArrayList<>();
 
     public KeybindManager() {
-        onyx.INSTANCE.getEventManager().add(KeyPressListener.class, this);
+        Onyx.INSTANCE.getEventManager().add(KeyPressListener.class, this);
         addDefaultKeybinds();
     }
 
@@ -61,6 +61,6 @@ public class KeybindManager implements KeyPressListener {
             mc.setScreen(new GuiScreen());
         });
         addKeybind(guiBind);
-        ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).activateKey.set(guiBind);
+        ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).activateKey.set(guiBind);
     }
 }

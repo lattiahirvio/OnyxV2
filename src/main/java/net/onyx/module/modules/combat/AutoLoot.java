@@ -15,7 +15,6 @@ import net.minecraft.item.Items;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
-import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.keybind.Keybind;
 import net.onyx.module.Category;
@@ -25,9 +24,7 @@ import net.onyx.module.setting.KeybindSetting;
 import net.onyx.util.AccessorUtils;
 import net.onyx.util.InventoryUtils;
 
-import static net.onyx.onyx.mc;
-
-public class ALY extends Module implements PlayerTickListener
+public class AutoLoot extends Module implements PlayerTickListener
 {
     private IntegerSetting minTotems;
     private IntegerSetting minPearls;
@@ -36,7 +33,7 @@ public class ALY extends Module implements PlayerTickListener
     private KeybindSetting activateKey;
     private int dropClock;
 
-    public ALY() {
+    public AutoLoot() {
         super("AutoLooterLegit", "Helps you loot kills", false, Category.COMBAT);
         this.minTotems = new IntegerSetting.Builder().setName("Totems To Keep").setDescription("minimum totems to keep in your inventory").setModule(this).setValue(2).setMin(0).setMax(36).setAvailability(() -> true).build();
         this.minPearls = new IntegerSetting.Builder().setName("Pearls To Keep").setDescription("minimum pearls to keep in your inventory").setModule(this).setValue(16).setMin(0).setMax(576).setAvailability(() -> true).build();
@@ -49,24 +46,19 @@ public class ALY extends Module implements PlayerTickListener
     @Override
     public void onEnable() {
         super.onEnable();
-        ALY.eventManager.add(PlayerTickListener.class, this);
+        AutoLoot.eventManager.add(PlayerTickListener.class, this);
         this.dropClock = 0;
     }
 
     @Override
     public void onDisable() {
         super.onDisable();
-        ALY.eventManager.remove(PlayerTickListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
+        AutoLoot.eventManager.remove(PlayerTickListener.class, this);
     }
 
     @Override
     public void onPlayerTick() {
-        final PlayerInventory inv = ALY.mc.player.getInventory();
+        final PlayerInventory inv = AutoLoot.mc.player.getInventory();
         if (this.dropClock != 0) {
             --this.dropClock;
             return;
@@ -94,26 +86,26 @@ public class ALY extends Module implements PlayerTickListener
             if (InventoryUtils.countItem(Items.TOTEM_OF_UNDYING) <= this.minTotems.get()) {
                 return;
             }
-            ALY.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen)ALY.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 1, SlotActionType.THROW, (PlayerEntity)ALY.mc.player);
+            AutoLoot.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen) AutoLoot.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 1, SlotActionType.THROW, (PlayerEntity) AutoLoot.mc.player);
             this.dropClock = this.dropInterval.get();
         }
         if (((ItemStack)inv.main.get(SlotUnderMouse)).getItem() == Items.ENDER_PEARL) {
             if (InventoryUtils.countItem(Items.ENDER_PEARL) <= this.minPearls.get()) {
                 return;
             }
-            ALY.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen)ALY.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 1, SlotActionType.THROW, (PlayerEntity)ALY.mc.player);
+            AutoLoot.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen) AutoLoot.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 1, SlotActionType.THROW, (PlayerEntity) AutoLoot.mc.player);
             this.dropClock = this.dropInterval.get();
         }
         if (((ItemStack)inv.main.get(SlotUnderMouse)).getItem() == Items.DIRT) {
-            ALY.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen)ALY.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 1, SlotActionType.THROW, (PlayerEntity)ALY.mc.player);
+            AutoLoot.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen) AutoLoot.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 1, SlotActionType.THROW, (PlayerEntity) AutoLoot.mc.player);
             this.dropClock = this.dropInterval.get();
         }
         if (((ItemStack)inv.main.get(SlotUnderMouse)).getItem() == Items.COBBLESTONE) {
-            ALY.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen)ALY.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 1, SlotActionType.THROW, (PlayerEntity)ALY.mc.player);
+            AutoLoot.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen) AutoLoot.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 1, SlotActionType.THROW, (PlayerEntity) AutoLoot.mc.player);
             this.dropClock = this.dropInterval.get();
         }
         if (((ItemStack)inv.main.get(SlotUnderMouse)).getItem() == Items.GRASS_BLOCK) {
-            ALY.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen)ALY.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 1, SlotActionType.THROW, (PlayerEntity)ALY.mc.player);
+            AutoLoot.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen) AutoLoot.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 1, SlotActionType.THROW, (PlayerEntity) AutoLoot.mc.player);
             this.dropClock = this.dropInterval.get();
         }
     }

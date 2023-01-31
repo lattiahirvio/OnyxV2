@@ -1,6 +1,6 @@
 package net.onyx.event;
 
-import net.onyx.onyx;
+import net.onyx.Onyx;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -15,7 +15,7 @@ public class EventManager {
     }
 
     public static <L extends Listener, E extends Event<L>> void fire(E event) {
-        EventManager eventManager = onyx.INSTANCE.getEventManager();
+        EventManager eventManager = Onyx.INSTANCE.getEventManager();
         if (eventManager != null) {
             eventManager.fireImpl(event);
         }

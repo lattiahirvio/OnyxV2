@@ -96,11 +96,6 @@ public class AutoInventoryTotem extends Module implements PlayerTickListener {
     }
 
     @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
-
-    @Override
     public void onPlayerTick() {
         if (!(mc.currentScreen instanceof InventoryScreen)) {
             invClock = -1;

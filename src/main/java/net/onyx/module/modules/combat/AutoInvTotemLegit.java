@@ -15,8 +15,7 @@ import net.minecraft.item.Items;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
-import net.onyx.onyx;
-import net.onyx.event.events.ItemUseListener;
+import net.onyx.Onyx;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.keybind.Keybind;
 import net.onyx.module.Category;
@@ -28,7 +27,7 @@ import net.onyx.util.AccessorUtils;
 
 import java.util.Objects;
 
-public class AIT extends Module implements PlayerTickListener
+public class AutoInvTotemLegit extends Module implements PlayerTickListener
 {
     private BooleanSetting autoSwitch;
     private IntegerSetting delay;
@@ -39,7 +38,7 @@ public class AIT extends Module implements PlayerTickListener
     private KeybindSetting activateKey;
     private int invClock;
     
-    public AIT() {
+    public AutoInvTotemLegit() {
         super("InventoryTotemLegit", "Automatically puts on totems for you when you are in inventory", false, Category.COMBAT);
         this.autoSwitch = new BooleanSetting.Builder().setName("Auto Inventory Switch").setDescription("automatically switches to your totem slot").setModule(this).setValue(true).setAvailability(() -> true).build();
         IntegerSetting.Builder setMax = new IntegerSetting.Builder().setName("Delay").setDescription("the delay for auto switch after opening inventory").setModule(this).setValue(0).setMin(0).setMax(20);
@@ -61,27 +60,22 @@ public class AIT extends Module implements PlayerTickListener
     public void onEnable() {
         super.onEnable();
         this.invClock = -1;
-        AIT.eventManager.add(PlayerTickListener.class, this);
+        AutoInvTotemLegit.eventManager.add(PlayerTickListener.class, this);
     }
     
     @Override
     public void onDisable() {
         super.onDisable();
-        AIT.eventManager.remove(PlayerTickListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
+        AutoInvTotemLegit.eventManager.remove(PlayerTickListener.class, this);
     }
 
     @Override
     public void onPlayerTick() {
-        PlayerInventory inv = AIT.mc.player.getInventory();
-        if (onyx.mc.currentScreen != null) {
+        PlayerInventory inv = AutoInvTotemLegit.mc.player.getInventory();
+        if (Onyx.mc.currentScreen != null) {
             inv.selectedSlot = this.totemSlot.get();
         }
-        if (!(AIT.mc.currentScreen instanceof InventoryScreen)) {
+        if (!(AutoInvTotemLegit.mc.currentScreen instanceof InventoryScreen)) {
             this.invClock = -1;
             return;
         }
@@ -116,7 +110,7 @@ public class AIT extends Module implements PlayerTickListener
                 return;
             }
             if (((ItemStack)inv.main.get(SlotUnderMouse)).getItem() == Items.TOTEM_OF_UNDYING) {
-                AIT.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen)AIT.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 40, SlotActionType.SWAP, (PlayerEntity)AIT.mc.player);
+                AutoInvTotemLegit.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen) AutoInvTotemLegit.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse, 40, SlotActionType.SWAP, (PlayerEntity) AutoInvTotemLegit.mc.player);
             }
         }
         else {
@@ -144,7 +138,7 @@ public class AIT extends Module implements PlayerTickListener
                 return;
             }
             if (((ItemStack)inv.main.get(SlotUnderMouse2)).getItem() == Items.TOTEM_OF_UNDYING) {
-                AIT.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen)AIT.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse2, inv.selectedSlot, SlotActionType.SWAP, (PlayerEntity)AIT.mc.player);
+                AutoInvTotemLegit.mc.interactionManager.clickSlot(((PlayerScreenHandler)((InventoryScreen) AutoInvTotemLegit.mc.currentScreen).getScreenHandler()).syncId, SlotUnderMouse2, inv.selectedSlot, SlotActionType.SWAP, (PlayerEntity) AutoInvTotemLegit.mc.player);
             }
         }
     }

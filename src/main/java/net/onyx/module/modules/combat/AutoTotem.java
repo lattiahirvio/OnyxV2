@@ -1,8 +1,6 @@
 package net.onyx.module.modules.combat;
 
-import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PlayerTickListener;
-import net.onyx.event.events.UpdateListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
 import net.onyx.mixinterface.IClientPlayerInteractionManager;
@@ -17,8 +15,6 @@ import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-
-import static net.onyx.onyx.mc;
 
 public class AutoTotem extends Module implements PlayerTickListener
 {
@@ -69,11 +65,6 @@ public class AutoTotem extends Module implements PlayerTickListener
     public void onDisable()
     {
         eventManager.remove(PlayerTickListener.class, this);
-    }
-
-    @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
     }
 
     @Override

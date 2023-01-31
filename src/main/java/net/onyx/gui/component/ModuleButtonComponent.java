@@ -4,7 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.gui.ClickGui;
 import net.onyx.gui.window.ModuleSettingWindow;
 import net.onyx.gui.window.Window;
@@ -14,7 +14,7 @@ import net.onyx.module.modules.hud.ClickGuiSettings;
 import net.onyx.util.RenderUtils;
 import org.lwjgl.glfw.GLFW;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public class ModuleButtonComponent extends Component {
 
@@ -29,9 +29,9 @@ public class ModuleButtonComponent extends Component {
 
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        double r = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorRed();
-        double g = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorGreen();
-        double b = ClickGuiSettings.class.cast(onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorBlue();
+        double r = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorRed();
+        double g = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorGreen();
+        double b = ClickGuiSettings.class.cast(Onyx.INSTANCE.getModuleManager().getModule(ClickGuiSettings.class)).getHudColorBlue();
         double parentX = parent.getX();
         double parentY = parent.getY();
         double parentWidth = parent.getWidth();

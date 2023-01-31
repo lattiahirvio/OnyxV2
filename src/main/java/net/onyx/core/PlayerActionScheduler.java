@@ -1,13 +1,13 @@
 package net.onyx.core;
 
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.event.events.PlayerTickListener;
 
 import java.util.LinkedList;
 
 public class PlayerActionScheduler implements PlayerTickListener {
     public PlayerActionScheduler() {
-        onyx.INSTANCE.getEventManager().add(PlayerTickListener.class, this);
+        Onyx.INSTANCE.getEventManager().add(PlayerTickListener.class, this);
     }
 
     private final LinkedList<ScheduledEvent> scheduledEvents = new LinkedList<>();

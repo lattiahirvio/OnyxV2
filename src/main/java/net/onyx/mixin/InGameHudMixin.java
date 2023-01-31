@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 @Mixin(InGameHud.class)
 public class InGameHudMixin {

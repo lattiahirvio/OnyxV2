@@ -6,11 +6,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.EndCrystalEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 
 import java.util.List;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public enum CrystalUtils {
     ;
@@ -31,7 +31,7 @@ public enum CrystalUtils {
         {
             if (!(entity instanceof EndCrystalEntity))
                 return false;
-            return onyx.INSTANCE.getCrystalDataTracker().isCrystalAttacked(entity);
+            return Onyx.INSTANCE.getCrystalDataTracker().isCrystalAttacked(entity);
         }); // crystal placement will be faster since on the server side the crystal have already been removed (probably)
         return list.isEmpty();
     }

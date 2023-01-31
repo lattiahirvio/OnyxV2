@@ -5,7 +5,7 @@ import net.minecraft.text.Text;
 import net.onyx.gui.window.Window;
 import net.onyx.mixinterface.ITextRenderer;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public abstract class Component {
 

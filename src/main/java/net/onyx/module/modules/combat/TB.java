@@ -11,8 +11,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
-import net.onyx.onyx;
-import net.onyx.event.events.ItemUseListener;
+import net.onyx.Onyx;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
@@ -53,26 +52,21 @@ public class TB extends Module implements PlayerTickListener
     }
 
     @Override
-    public void ItemUseListener(ItemUseListener.ItemUseEvent event) {
-
-    }
-
-    @Override
     public void onPlayerTick() {
-        if (onyx.mc.player.isUsingItem()) {
+        if (Onyx.mc.player.isUsingItem()) {
             return;
         }
-        if (this.activateOnLeftClick.get() && GLFW.glfwGetMouseButton(onyx.mc.getWindow().getHandle(), 0) != 1) {
+        if (this.activateOnLeftClick.get() && GLFW.glfwGetMouseButton(Onyx.mc.getWindow().getHandle(), 0) != 1) {
             return;
         }
-        if (!(onyx.mc.player.getMainHandStack().getItem() instanceof SwordItem)) {
+        if (!(Onyx.mc.player.getMainHandStack().getItem() instanceof SwordItem)) {
             return;
         }
-        HitResult hit = onyx.mc.crosshairTarget;
+        HitResult hit = Onyx.mc.crosshairTarget;
         if (hit.getType() !=HitResult.Type.ENTITY) {
             return;
         }
-        if (onyx.mc.player.getAttackCooldownProgress(0.0f) < this.cooldown.get()) {
+        if (Onyx.mc.player.getAttackCooldownProgress(0.0f) < this.cooldown.get()) {
             return;
         }
         final Entity target = ((EntityHitResult)hit).getEntity();
@@ -82,10 +76,10 @@ public class TB extends Module implements PlayerTickListener
         if (!target.isOnGround() && !this.attackInAir.get()) {
             return;
         }
-        if (onyx.mc.player.getY() > onyx.mc.player.prevY && !this.attackOnJump.get()) {
+        if (Onyx.mc.player.getY() > Onyx.mc.player.prevY && !this.attackOnJump.get()) {
             return;
         }
-        onyx.mc.interactionManager.attackEntity((PlayerEntity) onyx.mc.player, target);
-        onyx.mc.player.swingHand(Hand.MAIN_HAND);
+        Onyx.mc.interactionManager.attackEntity((PlayerEntity) Onyx.mc.player, target);
+        Onyx.mc.player.swingHand(Hand.MAIN_HAND);
     }
 }

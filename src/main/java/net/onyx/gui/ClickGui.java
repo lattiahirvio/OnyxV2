@@ -5,7 +5,7 @@ import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.gui.component.ModuleButtonComponent;
 import net.onyx.gui.window.Window;
 import net.onyx.module.Category;
@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public class ClickGui {
 
@@ -32,14 +32,14 @@ public class ClickGui {
         TreeMap<Category, Double> heights = new TreeMap<>();
         double x = 25;
         for (Category category : Category.values()) {
-            Window window = new Window(this, x, 25, 125, onyx.INSTANCE.getModuleManager().getNumberOfCategory(category)*20+20);
+            Window window = new Window(this, x, 25, 125, Onyx.INSTANCE.getModuleManager().getNumberOfCategory(category)*20+20);
             window.setTitle(category.toString());
             categorizedWindows.put(category, window);
             heights.put(category, 20.0);
             windows.add(window);
             x += 150;
         }
-        for (Module module : onyx.INSTANCE.getModuleManager().getModules()) {
+        for (Module module : Onyx.INSTANCE.getModuleManager().getModules()) {
             Category category = module.getCategory();
             Window window = categorizedWindows.get(category);
             double y = heights.get(category);

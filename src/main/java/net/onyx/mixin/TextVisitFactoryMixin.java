@@ -1,7 +1,7 @@
 package net.onyx.mixin;
 
 import net.minecraft.client.font.TextVisitFactory;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.module.modules.misc.NameProtect;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,7 +16,7 @@ public class TextVisitFactoryMixin {
                     "visitFormatted(Ljava/lang/String;ILnet/minecraft/text/Style;Lnet/minecraft/text/CharacterVisitor;)Z"},
             index = 0)
     private static String adjustText(String text) {
-        if (onyx.INSTANCE.getModuleManager().getModules() != null) {
+        if (Onyx.INSTANCE.getModuleManager().getModules() != null) {
             return NameProtect.replaceName(text);
         } else return text;
     }

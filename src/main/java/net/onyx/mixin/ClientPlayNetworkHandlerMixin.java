@@ -2,12 +2,10 @@ package net.onyx.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.network.packet.s2c.play.GameMessageS2CPacket;
 import net.minecraft.network.packet.s2c.play.PlayerPositionLookS2CPacket;
 import net.minecraft.network.packet.s2c.play.PlayerRespawnS2CPacket;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.module.modules.misc.NoLoadingScreen;
-import net.onyx.util.RotationUtils;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -28,7 +26,7 @@ public class ClientPlayNetworkHandlerMixin {
     private void onPlayerPositionLook(PlayerPositionLookS2CPacket packet, CallbackInfo ci) {
         if (!positionLookSetup) {
             positionLookSetup = true;
-            if (onyx.INSTANCE.getModuleManager().getModule(NoLoadingScreen.class).isEnabled())
+            if (Onyx.INSTANCE.getModuleManager().getModule(NoLoadingScreen.class).isEnabled())
                 client.setScreen(null);
         }
     }

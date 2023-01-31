@@ -12,7 +12,7 @@ import net.onyx.module.ModuleManager;
 
 import java.awt.*;
 
-public enum onyx {
+public enum Onyx {
 
     INSTANCE;
 

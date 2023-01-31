@@ -1,9 +1,8 @@
 package net.onyx.module;
 
 import net.minecraft.client.MinecraftClient;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.event.EventManager;
-import net.onyx.event.events.ItemUseListener;
 import net.onyx.module.setting.KeybindSetting;
 import net.onyx.module.setting.Setting;
 
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 public abstract class Module implements Serializable {
 
     public final static MinecraftClient mc = MinecraftClient.getInstance();
-    protected static EventManager eventManager = onyx.INSTANCE.getEventManager();
+    protected static EventManager eventManager = Onyx.INSTANCE.getEventManager();
 
     private final String name;
     private final String description;
@@ -63,7 +62,7 @@ public abstract class Module implements Serializable {
     public void onEnable() {
         for (Setting<?> setting : settings) {
             if (setting instanceof KeybindSetting keybindSetting) {
-                onyx.INSTANCE.getKeybindManager().addKeybind(keybindSetting.get());
+                Onyx.INSTANCE.getKeybindManager().addKeybind(keybindSetting.get());
             }
         }
     }
@@ -71,7 +70,7 @@ public abstract class Module implements Serializable {
     public void onDisable() {
         for (Setting<?> setting : settings) {
             if (setting instanceof KeybindSetting keybindSetting) {
-                onyx.INSTANCE.getKeybindManager().removeKeybind(keybindSetting.get());
+                Onyx.INSTANCE.getKeybindManager().removeKeybind(keybindSetting.get());
             }
         }
     }
@@ -84,5 +83,4 @@ public abstract class Module implements Serializable {
         return (ArrayList<Setting<?>>) settings.clone();
     }
 
-    public abstract void ItemUseListener(ItemUseListener.ItemUseEvent event);
 }

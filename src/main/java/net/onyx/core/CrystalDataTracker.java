@@ -2,7 +2,7 @@ package net.onyx.core;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.EndCrystalEntity;
-import net.onyx.onyx;
+import net.onyx.Onyx;
 import net.onyx.event.EventManager;
 import net.onyx.event.events.EntityDespawnListener;
 import net.onyx.event.events.EntitySpawnListener;
@@ -39,7 +39,7 @@ public class CrystalDataTracker implements PlayerTickListener, EntitySpawnListen
     }
 
     public CrystalDataTracker() {
-        EventManager eventManager = onyx.INSTANCE.getEventManager();
+        EventManager eventManager = Onyx.INSTANCE.getEventManager();
         eventManager.add(PlayerTickListener.class, this, Integer.MAX_VALUE);
         eventManager.add(EntitySpawnListener.class, this, Integer.MAX_VALUE);
         eventManager.add(EntityDespawnListener.class, this, Integer.MAX_VALUE);

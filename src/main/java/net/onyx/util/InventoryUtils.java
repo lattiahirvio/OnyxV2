@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 import java.util.function.Predicate;
 
-import static net.onyx.onyx.mc;
+import static net.onyx.Onyx.mc;
 
 public enum InventoryUtils {
     ;
