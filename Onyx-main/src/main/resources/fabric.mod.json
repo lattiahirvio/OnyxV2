@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "nofireoverlay",
+  "version": "${version}",
+  "name": "no fire overlay",
+  "description": "Disables fire so you can see",
+  "authors": [
+    "LilNotMaster, FoxOnTop"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/nofireoverlay/fire.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.onyx.Main"
+    ]
+  },
+  "mixins": [
+    "nofireoverlay.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.10",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
