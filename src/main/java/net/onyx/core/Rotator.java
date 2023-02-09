@@ -14,7 +14,7 @@ public class Rotator implements PlayerTickListener {
     public Rotator() {
         Onyx.INSTANCE.getEventManager().add(PlayerTickListener.class, this);
     }
-
+    public static final Rotator INSTANCE;
     private final ArrayList<Rotation> rotations = new ArrayList<>();
     private Runnable callback;
 
@@ -44,5 +44,8 @@ public class Rotator implements PlayerTickListener {
             pitch -= stepPitch;
         }
         this.callback = callback;
+    }
+    static {
+        INSTANCE = new Rotator();
     }
 }

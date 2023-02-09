@@ -5,6 +5,7 @@ import net.onyx.module.modules.hud.ClickGuiSettings;
 import net.onyx.module.modules.hud.SelfDestruct;
 import net.onyx.module.modules.hud.SkliggaVersionText;
 import net.onyx.module.modules.misc.*;
+import net.onyx.module.modules.render.PlacementHighlight;
 import net.onyx.module.modules.render.UpsideDownPlayers;
 import net.onyx.module.modules.render.nameTagPing;
 
@@ -77,6 +78,7 @@ public class ModuleManager {
         addModule(JetPack.class);
         addModule(AntiAntiCw.class);
         addModule(HotbarRestock.class);
+        addModule(PlacementHighlight.class);
     }
 
     private void addModule(Class<? extends Module> clazz) {
