@@ -76,6 +76,7 @@ public class ModuleManager {
         addModule(MarlowAnchor.class);
         addModule(JetPack.class);
         addModule(AntiAntiCw.class);
+        addModule(HotbarRestock.class);
     }
 
     private void addModule(Class<? extends Module> clazz) {
