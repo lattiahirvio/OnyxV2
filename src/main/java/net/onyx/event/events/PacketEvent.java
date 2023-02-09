@@ -1,4 +1,4 @@
-package net.onyx.module.setting;
+package net.onyx.event.events;
 
 import net.minecraft.network.Packet;
 import net.onyx.event.Event;
