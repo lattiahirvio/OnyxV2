@@ -75,6 +75,7 @@ public class ModuleManager {
         addModule(AutoTotem.class);
         addModule(MarlowAnchor.class);
         addModule(JetPack.class);
+        addModule(AntiAntiCw.class);
     }
 
     private void addModule(Class<? extends Module> clazz) {
