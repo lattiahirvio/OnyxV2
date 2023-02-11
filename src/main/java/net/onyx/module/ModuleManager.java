@@ -51,6 +51,7 @@ public class ModuleManager {
         addModule(AutoMedalClip.class);
         addModule(MiddleClickPing.class);
         addModule(nameTagPing.class);
+        addModule(AutoAgro.class);
         addModule(UpsideDownPlayers.class);
         addModule(AnchorMacro.class);
         addModule(NameProtect.class);

@@ -17,7 +17,7 @@ import net.onyx.event.events.ItemUseListener;
 import net.onyx.event.events.PlayerTickListener;
 import net.onyx.module.Category;
 import net.onyx.module.Module;
-import net.onyx.module.setting.BlockUtils2;
+import net.onyx.util.BlockUtils2;
 import net.onyx.module.setting.BooleanSetting;
 import net.onyx.module.setting.IntegerSetting;
 import net.onyx.util.CrystalUtils;

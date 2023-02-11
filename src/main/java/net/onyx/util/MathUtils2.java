@@ -1,4 +1,4 @@
-package net.onyx.module.setting;
+package net.onyx.util;
 
 public enum MathUtils2
 {

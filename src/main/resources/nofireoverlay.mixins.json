@@ -18,8 +18,9 @@
     "KeyboardMixin",
     "LivingEntityRendererMixin",
     "MinecraftClientMixin",
+    "MixinConfigClientSide",
     "TextRendererMixin",
-    "MixinConfigClientSide"
+    "PlayerPlaceBlock"
   ],
   "injectors": {
     "defaultRequire": 1

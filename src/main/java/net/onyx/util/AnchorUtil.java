@@ -10,7 +10,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.shape.VoxelShape;
 import net.onyx.Onyx;
-import net.onyx.module.setting.BlockUtils2;
 
 import java.util.ArrayList;
 import java.util.stream.Stream;

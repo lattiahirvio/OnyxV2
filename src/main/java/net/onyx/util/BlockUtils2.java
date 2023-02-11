@@ -1,4 +1,4 @@
-package net.onyx.module.setting;
+package net.onyx.util;
 
 
 import net.minecraft.block.Block;
@@ -14,7 +14,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
-import net.onyx.util.RotationUtils;
 
 import java.util.ArrayList;
 import java.util.stream.Stream;
